@@ -1,0 +1,49 @@
+{% extends 'silostore_web/layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container p-3" style="min-height: 100vh;">
+  <p class="display-4" style="font-weight: bolder;">Auctions Completed: </p>
+  <hr>
+  {% if message %}
+  <p>{{message}}</p>
+  {% endif %}
+
+  {% if items %}
+  <div class="container">
+      <div class="row">
+        <!-- <iframe src="https://giphy.com/embed/9xt1MUZqkneFiWrAAD" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p><a href="https://giphy.com/gifs/winner-good-job-trophy-9xt1MUZqkneFiWrAAD"></a></p> -->
+  {% for item in items_bids %}
+          <div class="col-lg-3">
+              <div class="card border border-success" style="width: 18rem;">
+                  <img class="card-img-top"   src="{{item.0.img_url}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                        <span style="display: block; overflow: hidden; white-space: nowrap; height: 23px; text-overflow: ellipsis;">
+                          Title: {{item.0.title}}
+                        </span>
+                        </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Auction Won By: {{ item.0.user.username }}</h6>
+                      <p class="card-text">
+                          <span id="item-title" style="display: block; overflow: hidden; white-space: nowrap; height: 23px; text-overflow: ellipsis;">
+                            Description: {{item.0.description}}
+                          </span>
+                      </p>
+                    
+                    <div style="flex-direction: row; " class="flexbox-container">
+                      <label style="font-size: 25px; font-weight: bold; padding-right: 10px;">Bid Amount</label>
+                      <label style="font-size: 25px; ">${{item.1.amount}}</label>
+                    </div>
+                  </div>
+              </div>
+          </div>
+  {% endfor %}
+      </div>
+  </div> 
+  {% else %}
+    <h4>No auctions</h4>
+  {% endif %}
+</div>
+
+{% endblock  %}

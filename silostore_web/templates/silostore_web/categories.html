@@ -1,0 +1,20 @@
+{% extends 'silostore_web/layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <p class="display-4" style="font-weight: bolder;">Categories</p>
+    <hr>
+    
+    <div class="row m-3">
+        <div class="col-md-6" min-height="100vh">
+        {% for category in categories %}
+            <ul class="list-group list-group-flush">
+                <a class="list-group-item text-dark" href="/category_list/{{category.0}}" style="text-align: left; justify-content: center;"> &#9745; {{category.1}}</a>
+            </ul>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
+body {
+  font-family: "Cormorant", serif;
+  font-size: 19px;
+  font-style: inherit;
+  font-weight: 500;
+  padding: 0px 0px 0px 0px;
+  /* background-image: url("http://silostore.in/wp-content/uploads/2021/02/office-supplies-table-business-1149055.jpg");
+  background-repeat: no-repeat;
+  background-size: contain; */
+}
+.col-lg.table-header {
+  text-align: center;
+}
+
+.cust_nav {
+  box-sizing: inherit;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 99;
+}
+
+small {
+  font-size: calc(
+    12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+}
+
+.bold-text {
+  color: #989c9e !important;
+}
+
+.mt-55 {
+  margin-top: calc(
+    50px + (60 - 50) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+}
+
+h3 {
+  font-size: calc(
+    34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))
+  ) !important;
+}
+
+#social {
+  background-color: #000;
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.smGlobalBtn {
+  /* global button class */
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ddd;
+  padding: 0px;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 2em;
+  border-radius: 27px;
+  -moz-border-radius: 27px;
+  -webkit-border-radius: 27px;
+}
+
+/* facebook button class*/
+.facebookBtn {
+  background: #000;
+}
+
+.facebookBtn:before {
+  /* use :before to add the relevant icons */
+  font-family: "FontAwesome";
+  content: "\f09a";
+}
+
+.twitterBtn {
+  background: #000;
+}
+
+.twitterBtn:before {
+  font-family: "FontAwesome";
+  content: "\f099";
+}
+
+.instaBtn {
+  background: #000;
+}
+
+.instaBtn:before {
+  font-family: "FontAwesome";
+  content: "\f16d";
+}
+
+.youtubeBtn {
+  background: #000;
+}
+
+.youtubeBtn:before {
+  font-family: "FontAwesome";
+  content: "\f16a";
+}

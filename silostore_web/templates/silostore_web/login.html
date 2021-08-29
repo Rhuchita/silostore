@@ -1,0 +1,33 @@
+{% extends "silostore_web/layout.html" %}
+
+{% block body %}
+
+
+    <div class="container p-3" style="min-height: 100vh;">
+        <p class="display-4" style="font-weight: bolder;">Login</p>
+        <hr>
+
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+        <form action="{% url 'silostore_web:login' %}" method="post">
+            {% csrf_token %}
+            
+            <div class="row m-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Login">
+                </div>
+            </div>
+            
+        </form>
+
+        Don't have an account? <a href="{% url 'silostore_web:register' %}">Register here.</a>
+    </div>
+
+{% endblock %}

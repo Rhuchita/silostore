@@ -1,0 +1,27 @@
+{% extends "silostore_web/layout.html" %}
+
+{% block body %}
+<div class="container p-3" style="min-height: 100vh;">
+    <p class="display-4" style="font-weight: bolder;">Add Product: </p>
+    <hr>
+    <form action="{% url 'silostore_web:add' %}" method="POST">  
+        {% csrf_token %}
+        <div class="container form-group p-3">
+            <div class="row m-3">
+                <div class="col-md-6">
+                    {{ new_form }}
+                </div>
+            </div>
+            <!--
+                <input type="text" class="form-control" id="titleInput" placeholder="New entry title " >
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="New entry content">
+                </textarea>
+                
+            -->
+            
+            <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+        </div>            
+    
+    </form>
+</div>
+{% endblock %}

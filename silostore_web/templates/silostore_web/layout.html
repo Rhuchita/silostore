@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="htmlcss bootstrap menu, navbar, mega menu examples" />
+        <meta name="description" content="Navigation  menu with submenu examples for any type of project, Bootstrap 4" />
+        <title>{% block title %}Auctions{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'silostore_web/styles.css' %}" rel="stylesheet">
+        <link  href="{% static 'silostore_web/cards.css' %}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <!-- <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+        <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+        <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet"> -->
+    </head>
+    <body>  
+        <div class="navbar navbar-expand bg-gradient top-0 start-0 translate-middle" style="font-family: Cormorant, serif;background-color: rgba(34,0,92,0.3); z-index: 99;">
+            <div class="container-fluid top-0 start-50 translate-middle" style="text-decoration: none; ">
+                <a class="navbar-brand text-white" href="#"></a>
+                <div class="navbar-nav p-3" style="margin: 7px;">
+                    <li class="nav-item"><a class="nav-link text-white" href="https://silostore.in/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://silostore.in/index.php/store/">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://silostore.in/index.php/testimonials/">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://silostore.in/index.php/about-3/">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://silostore.in/index.php/contact-2/">Contact</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item text-dark" href="https://silostore.in/">Logout</a></li>
+                            <li><a class="dropdown-item text-dark" href="https://silostore.in/index.php/my-account-2/">My Account</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item text-dark" href="https://silostore.in/index.php/login/">Login</a></li>
+                            <li><a class="dropdown-item text-dark" href="https://silostore.in/index.php/register/">Register</a></li>
+                            {% endif %}
+                        </ul>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Online Auction
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:index' %}">Active Listings</a></li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:category_list' %}">Categories</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:add' %}">Add Item</a></li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:watchlist' %}">Watchlist</a></li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:auctions_history' %}">Auctions History</a></li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:logout' %}">Log Out</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:login' %}">Log In</a></li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'silostore_web:register' %}">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>                 
+                </div>    
+                <!-- <div class="text-white">
+                    {% if user.is_authenticated %}
+                        Signed in as <strong>{{ user.username }}</strong>.
+                    {% else %}
+                        Not signed in.
+                    {% endif %}
+                </div>  --> 
+                <form class="d-flex">
+                    <div class="input-group mb-3">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <i class="fa fa-search input-group-text" id="basic-addon2"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+
+
+
+        {% block body %}
+        {% endblock %}
+
+        <!--Footer-->
+<!--         <div class="footer sticky-bottom " style="background-color: black;">
+            <div class="container-fluid pb-0 mb-0  "> -->
+                <footer class="sticky-bottom justify-content-center text-light" style="background-color: black;">
+                    <div class="row justify-content-center">
+                        <div class="col-11">
+                            <div class="row ">
+                                <div class="col-xl-4 col-md-4 col-sm-4 col-12 p-5">
+                                    <h6 class="mb-3 mb-lg-4 bold-text "><b>Contact Details</b></h6>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#" class="text-white">
+                                                <i class="fa fa-phone"></i>					
+                                                <span class="elementor-icon-list-text"> +918147854850</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-white">						
+                                                <i aria-hidden="true" class="fa fa-envelope"></i>						
+                                                <span class="elementor-icon-list-text"> contact@silostore.in</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-white">						
+                                                <i aria-hidden="true" class="fa fa-map-marker"></i>						
+                                                <span class="elementor-icon-list-text"> #350/5/2, 1st Floor, 2nd Cross,  Jayanagar 1st Block, Bangalore - 560011</span>
+                                            </a>                                        
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-4 col-md-4 col-sm-4 col-12">
+                                    <img src="https://silostore.in/wp-content/uploads/2021/02/cropped-logo_transparent.png" height="100%" width="75%">
+                                </div>
+                                <div class="col-xl-3 col-md-4 col-sm-4 col-12 align-self-center" style="text-align: right;">
+                                    <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5 text-align-right"><b>Quick Links</b></h6>
+                                    <a href="#" class="mb-1 text-white">Shipping & Returns</a><br>
+                                    <a href="#" class="text-white">Contact</a>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-xl-9 col-md-4 col-sm-4 col-12 align-self-end">
+                                    <h5 class="rights">Copyright <span>&copy;</span> 2021 silostore.in | Powered by silostore.in</h5>
+                                </div>
+                                <div class="col-xl-3 col-md-4 col-sm-4 col-12 align-self-end">
+                                    <div id="social">
+                                        <a class="youtubeBtn smGlobalBtn" href="#" ></a>
+                                        <a class="instaBtn smGlobalBtn" href="#" ></a>
+                                        <a class="facebookBtn smGlobalBtn" href="#" ></a>
+                                        <a class="twitterBtn smGlobalBtn" href="#" ></a>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            <!-- </div>
+        </div> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    </body>
+</html>
