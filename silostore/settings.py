@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%&*6s7&-l3&t+y5pth8hsajq=+9m4)bm5&!8h4+&v(5^^)jt)p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://silostore-auction.herokuapp.com","localhost","127.0.0.1"]
+ALLOWED_HOSTS = ["https://silostore-bid.herokuapp.com","localhost","127.0.0.1"]
 
 
 # Application definition
